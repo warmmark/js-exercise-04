@@ -1,0 +1,15 @@
+name: check-action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install deps
+        run: npm ci
+      - name: test
+        run: npm run test
